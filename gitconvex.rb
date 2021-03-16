@@ -2,7 +2,7 @@ class Gitconvex < Formula
   desc "Gitconvex - A Web UI client for git"
   homepage "https://gitconvex.com"
   url "https://github.com/neel1996/gitconvex/releases/download/2.1.0-beta.1/gitconvex-2.1.0-beta.1.tar.gz"
-  sha256 "0d26bfd5913373ab4c2f7864925c891321e48eaea8c1a39d7f9c81a2a00ee76f"
+  sha256 "e5820fb09072c65e62950bd0a0bde0c93187e224840895d06780bc945030fc07"
   license "Apache-2.0"
 
   depends_on "go" => :build
