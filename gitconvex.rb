@@ -10,9 +10,9 @@ class Gitconvex < Formula
   depends_on "libgit2"
 
   def install
-    bin.install "program"
+    bin.install "make build"
     system "cp", "-r", "dist/gitconvex-ui", "."
-    system "go", "build", "-v", "."
+    system "go", "build", "-v"
   end
 
   test do
