@@ -10,10 +10,12 @@ class Gitconvex < Formula
   depends_on "libgit2"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "cp", "-r", "dist/gitconvex-ui", "."
-    system "go", "get"
-    system "go", "build", "-v", "-a"
+    ENV["GOPATH"] = buildpath
+    bin_path = buildpath/"src/github.com/neel1996/gitconvex-server"
+    bin_path.install Dir["*"]
+    cd bin_path do
+      system "go", "build", "-v", "-a", "-o", bin/"gitconvex", "."
+    end
   end
 
   test do
