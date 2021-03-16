@@ -6,11 +6,11 @@ class Gitconvex < Formula
   license "Apache-2.0"
 
   depends_on "go" => :build
-  depends_on "node" => :build
   depends_on "libssh2"
   depends_on "libgit2"
 
   def install
+    bin.install "program"
     system "cp", "-r", "dist/gitconvex-ui", "."
     system "go", "build", "-v", "."
   end
