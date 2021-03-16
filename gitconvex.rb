@@ -12,7 +12,7 @@ class Gitconvex < Formula
 
   def install
     system "cp", "-r", "dist/gitconvex-ui", "."
-    system "go", "build", "-o", "/usr/local/gitconvex/gitconvex"
+    system "go", "build", "-v", "-a"
   end
 
   test do
