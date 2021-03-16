@@ -6,20 +6,16 @@ class Gitconvex < Formula
   license "Apache-2.0"
 
   depends_on "go" => :build
-  depends_on "node"
-  depends_on "make"
   depends_on "libssh2"
   depends_on "libgit2"
 
   def install
-    system "make", "build"
     system "mkdir", "-p", "/usr/local/gitconvex"
-    system "cp", "./dist/*", "/usr/local/gitconvex"
-    system "ln", "-s", "/usr/local/gitconvex/gitconvex", "/usr/local/bin"
-    system "ln", "-s", "/usr/local/gitconvex/gitconvex-ui/", "/usr/local/bin"
+    system "cp", "-r", "gitconvex-ui", "/usr/local/gitconvex/"
+    system "go", "build", "-o", "/usr/local/gitconvex/gitconvex"
   end
 
   test do
-    assert_not_nil shell_output("gitconvex --version")
+    assert_match "v2.1.0", shell_output("#{bin}/gitconvex --version")
   end
 end
