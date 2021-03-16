@@ -10,6 +10,7 @@ class Gitconvex < Formula
   depends_on "libgit2"
 
   def install
+    system "./configure", "--prefix=#{prefix}"
     system "cp", "-r", "dist/gitconvex-ui", "."
     system "go", "get"
     system "go", "build", "-v", "-a"
