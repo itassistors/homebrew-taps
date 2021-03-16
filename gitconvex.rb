@@ -11,11 +11,8 @@ class Gitconvex < Formula
   depends_on "libgit2"
 
   def install
-    system "mkdir", "-p", "/usr/local/gitconvex"
-    system "cp", "-r", "dist/gitconvex-ui", "/usr/local/gitconvex/"
+    system "cp", "-r", "dist/gitconvex-ui", "."
     system "go", "build", "-o", "/usr/local/gitconvex/gitconvex"
-    system "ln", "-s", "/usr/local/gitconvex/gitconvex", "/usr/local/bin"
-    system "ln", "-s", "/usr/local/gitconvex/gitconvex-ui/", "/usr/local/bin"
   end
 
   test do
