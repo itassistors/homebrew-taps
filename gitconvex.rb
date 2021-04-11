@@ -1,8 +1,8 @@
 class Gitconvex < Formula
   desc "Gitconvex - A Web UI client for git"
   homepage "https://gitconvex.com"
-  url "https://github.com/neel1996/gitconvex/releases/download/2.1.0/gitconvex-2.1.0-brew.tar.gz"
-  sha256 "44819e07193e1576deba13611d9b23bb95c4a102315e1efb1087272519a4ef8e"
+  url "https://github.com/neel1996/gitconvex/releases/download/2.1.1/gitconvex-v2.1.1-brew.tar.gz"
+  sha256 "683C1927E750499CEC95B807E0491362A159757FAD0E951F678C7F20B3B5C74A"
   license "Apache-2.0"
 
   depends_on "go" => :build
@@ -21,7 +21,7 @@ class Gitconvex < Formula
 
   def install
     # Current version will be updated every release
-    version = "2.1.0"
+    version = "2.1.1"
     system "cp", "-rp", "./dist/", bin
     ENV["GOPATH"] = buildpath
     bin_path = buildpath/"src/github.com/neel1996/gitconvex-server"
@@ -41,6 +41,6 @@ class Gitconvex < Formula
   end
 
   test do
-    assert_match "2.1.0", shell_output("#{bin}/gitconvex --version")
+    assert_match "2.1.1", shell_output("#{bin}/gitconvex --version")
   end
 end
