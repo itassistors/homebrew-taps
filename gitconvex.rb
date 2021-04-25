@@ -1,18 +1,18 @@
 class Gitconvex < Formula
-  desc "Gitconvex - A Web UI client for git"
+  desc "A Web UI client for git"
   homepage "https://gitconvex.com"
   url "https://github.com/neel1996/gitconvex/releases/download/2.1.1/gitconvex-v2.1.1-brew.tar.gz"
-  sha256 "683C1927E750499CEC95B807E0491362A159757FAD0E951F678C7F20B3B5C74A"
+  sha256 "683c1927e750499cec95b807e0491362a159757fad0e951f678c7f20b3b5c74a"
   license "Apache-2.0"
 
   depends_on "go" => :build
-  depends_on "libssh2"
   depends_on "libgit2"
+  depends_on "libssh2"
 
   def print_lines(sym)
     $i = 0
     print "\n"
-    while $i < 50 do
+    while $i < 50
       print "#{sym}"
       $i += 1
     end
@@ -22,7 +22,7 @@ class Gitconvex < Formula
   def install
     # Current version will be updated every release
     version = "2.1.1"
-    system "cp", "-rp", "./dist/", bin
+    FileUtils.cp "./dist/", bin
     ENV["GOPATH"] = buildpath
     bin_path = buildpath/"src/github.com/neel1996/gitconvex-server"
     bin_path.install Dir["*"]
