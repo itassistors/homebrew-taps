@@ -30,7 +30,10 @@ class Gitconvex < Formula
       system "go", "build", "-v", "-o", bin/"gitconvex", "."
       print_lines("=")
       print "\n✅\tGitconvex server is successfully installed!"
-      print "\n🖥️\tNow copy and run the following command to link the UI directory to the same path"
+      print "\n🖥️\tCreating default dir"
+      FileUtils.mkdir_p '/usr/local/gitconvex/'
+      print "\n🖥️\tLinking UI directory to default directory"
+      FileUtils.ln_s "#{HOMEBREW_PREFIX}/Cellar/gitconvex/#{version}/bin/gitconvex-ui", '/usr/local/gitconvex/'
       print "\n"
       cmd = "ln -s #{HOMEBREW_PREFIX}/Cellar/gitconvex/#{version}/bin/gitconvex-ui #{HOMEBREW_PREFIX}/bin/"
       print_lines(">")
